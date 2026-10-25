@@ -1,0 +1,3 @@
+Sound recordings:
+- MX Blue / Brown / Black / Creamy / Holy Panda: kbsim by Thomas Lai (MIT) https://github.com/tplai/kbsim
+- MX Red / Topre: Mechvibes sound packs (MIT, Hai Nguyen) https://github.com/hainguyents13/mechvibes
