@@ -338,7 +338,7 @@ func openPrivacySettings() {
 // Throws away the old (possibly stale) permission record + tap, asks again, and the app restarts itself once allowed.
 func refreshPermission() {
     dropTap()
-    runTool("/usr/bin/tccutil", ["reset", "ListenEvent", Bundle.main.bundleIdentifier ?? "com.local.thock"])
+    runTool("/usr/bin/tccutil", ["reset", "ListenEvent", Bundle.main.bundleIdentifier ?? "com.local.keypheus"])
     gAwaiting = true
     _ = CGRequestListenEventAccess()
     openPrivacySettings()
@@ -412,7 +412,7 @@ struct PopoverView: View {
             }
             .frame(width: 36, height: 36)
             VStack(alignment: .leading, spacing: 1) {
-                Text("Thock").font(.system(size: 15, weight: .semibold))
+                Text("Keypheus").font(.system(size: 15, weight: .semibold))
                 Text(m.enabled ? "On" : "Off").font(.system(size: 12)).foregroundColor(.secondary)
             }
             Spacer()
@@ -424,7 +424,7 @@ struct PopoverView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(m.granted
                  ? "Permission shows as granted, but keystrokes aren’t being heard. Refresh and grant it again."
-                 : "Grant Thock permission in Input Monitoring to hear keystrokes.")
+                 : "Grant Keypheus permission in Input Monitoring to hear keystrokes.")
                 .font(.system(size: 12)).foregroundColor(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
             HStack(spacing: 14) {
@@ -498,7 +498,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ n: Notification) {
         item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let b = item.button {
-            b.image = NSImage(systemSymbolName: "keyboard", accessibilityDescription: "Thock")
+            b.image = NSImage(systemSymbolName: "keyboard", accessibilityDescription: "Keypheus")
             b.target = self
             b.action = #selector(toggle(_:))
         }

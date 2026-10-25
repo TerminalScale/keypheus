@@ -1,6 +1,6 @@
 """
-Thock for Windows — mechanical keyboard sound simulator.
-Port of the macOS Thock app (Swift/AVFoundation) to Windows (Python).
+Keypheus for Windows — mechanical keyboard sound simulator.
+Port of the macOS Keypheus app (Swift/AVFoundation) to Windows (Python).
 
 Listens globally for key presses (never blocks/modifies typing), plays a
 matching mechanical-keyboard click from the selected sound pack, panned
@@ -35,7 +35,7 @@ def base_dir():
 PACKS_DIR = os.path.join(base_dir(), "packs")
 
 APPDATA = os.environ.get("APPDATA") or os.path.expanduser("~")
-SETTINGS_DIR = os.path.join(APPDATA, "Thock")
+SETTINGS_DIR = os.path.join(APPDATA, "Keypheus")
 SETTINGS_PATH = os.path.join(SETTINGS_DIR, "settings.json")
 
 DEFAULTS = {"enabled": True, "pack": 1, "volume": 0.7, "release": True,
@@ -305,10 +305,10 @@ def set_startup(enabled):
             else:
                 pyw = sys.executable.replace("python.exe", "pythonw.exe")
                 cmd = f'"{pyw}" "{os.path.abspath(__file__)}"'
-            winreg.SetValueEx(key, "Thock", 0, winreg.REG_SZ, cmd)
+            winreg.SetValueEx(key, "Keypheus", 0, winreg.REG_SZ, cmd)
         else:
             try:
-                winreg.DeleteValue(key, "Thock")
+                winreg.DeleteValue(key, "Keypheus")
             except FileNotFoundError:
                 pass
         winreg.CloseKey(key)
@@ -401,7 +401,7 @@ def main():
     keyboard.hook(app.on_key_event)
     keyboard.add_hotkey("ctrl+alt+windows+k", app.toggle_enabled)
 
-    icon = pystray.Icon("Thock", make_icon(app.settings["enabled"]), "Thock",
+    icon = pystray.Icon("Keypheus", make_icon(app.settings["enabled"]), "Keypheus",
                          menu=build_menu(app))
     app.icon = icon
     icon.run()

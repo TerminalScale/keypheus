@@ -4,4 +4,4 @@ pip show keyboard >nul 2>&1
 if errorlevel 1 (
     pip install -r requirements.txt
 )
-start "" pythonw thock.py
+start "" pythonw keypheus.py

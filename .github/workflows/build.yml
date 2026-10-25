@@ -10,9 +10,9 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt pyinstaller
         working-directory: windows
-      - run: pyinstaller --onefile --noconsole --name Thock --add-data "packs;packs" thock.py
+      - run: pyinstaller --onefile --noconsole --name Keypheus --add-data "packs;packs" keypheus.py
         working-directory: windows
       - uses: actions/upload-artifact@v4
         with:
-          name: Thock-exe
-          path: windows/dist/Thock.exe
+          name: Keypheus-exe
+          path: windows/dist/Keypheus.exe
