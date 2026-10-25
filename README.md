@@ -14,15 +14,21 @@ Grab `Thock.dmg` (Mac) or `Thock.exe` (Windows) from the [latest release](https:
 
 ## Mac
 
-Open the dmg and move `Thock.app` into Applications. The app isn't notarized, so on first launch right click it, hit Open, then Open again.
+Open the dmg and move `Thock.app` into Applications.
 
-It needs Input Monitoring permission to hear your keypresses (System Settings, Privacy & Security). Thock lives in the menu bar, and Ctrl+Option+Cmd+T opens its panel if the icon is hidden.
+The app isn't notarized, so macOS blocks it the first time. Right click it and hit Open. If you don't get that option (newer macOS versions often hide it), double click the app once and let it fail, then go to System Settings, Privacy & Security, scroll down and click Open Anyway next to Thock. You only do this once.
+
+It also needs Input Monitoring permission to hear your keypresses (same Privacy & Security page). Thock lives in the menu bar, and Ctrl+Option+Cmd+T opens its panel if the icon is hidden.
 
 I built it on an M4 MacBook, so it probably won't run on Intel Macs.
 
 ## Windows
 
-Double click `Thock.exe`. It sits in the system tray, so click the `^` arrow near the clock to find it. The exe is unsigned, so SmartScreen will warn you. Click More info, then Run anyway.
+Double click `Thock.exe`. It sits in the system tray, so click the `^` arrow near the clock to find it.
+
+The exe is unsigned, so SmartScreen will warn you. Click More info, then Run anyway.
+
+Some antivirus tools, Windows Defender included, can flag it as a false positive because it's packed with PyInstaller and listens to the keyboard globally. If Windows blocks the file itself, right click it, open Properties, tick Unblock at the bottom and hit OK. If Defender deletes it, add an exclusion for the file.
 
 ## Sound packs
 
